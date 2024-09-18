@@ -6,24 +6,24 @@ body {
 
 .bg {
     background-image: linear-gradient(315deg,
-            hsl(240deg 100% 20%) 0%,
-            hsl(236deg 100% 21%) 8%,
-            hsl(232deg 100% 22%) 17%,
-            hsl(229deg 100% 23%) 25%,
-            hsl(227deg 100% 24%) 33%,
-            hsl(225deg 100% 25%) 42%,
-            hsl(223deg 100% 26%) 50%,
-            hsl(221deg 100% 27%) 58%,
-            hsl(219deg 99% 28%) 67%,
-            hsl(218deg 97% 29%) 75%,
-            hsl(217deg 94% 31%) 83%,
-            hsl(217deg 91% 32%) 92%,
-            hsl(216deg 87% 34%) 100%);
+        hsl(240deg 100% 20%) 0%,
+        hsl(236deg 100% 21%) 8%,
+        hsl(232deg 100% 22%) 17%,
+        hsl(229deg 100% 23%) 25%,
+        hsl(227deg 100% 24%) 33%,
+        hsl(225deg 100% 25%) 42%,
+        hsl(223deg 100% 26%) 50%,
+        hsl(221deg 100% 27%) 58%,
+        hsl(219deg 99% 28%) 67%,
+        hsl(218deg 97% 29%) 75%,
+        hsl(217deg 94% 31%) 83%,
+        hsl(217deg 91% 32%) 92%,
+        hsl(216deg 87% 34%) 100%);
     min-height: 100vh;
     width: 100%;
 }
 
-.title {
+.title, #infoLocation {
     text-align: center;
     font-family: "Roboto", sans-serif;
     font-weight: 700;
@@ -31,9 +31,66 @@ body {
     color: white;
 }
 
+.card {
+    flex: 1;
+    transform: rotate3d(.5, -.866, 0, 15deg) rotate(1deg);
+    box-shadow: 2em 4em 6em -2em rgba(0, 0, 0, .5), 1em 2em 3.5em -2.5em rgba(0, 0, 0, .5);
+    transition: transform .4s ease, box-shadow .4s ease;
+    border-radius: .8em;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+.card:hover {
+    transform: rotate3d(0, 0, 0, 0deg) rotate(0deg);
+}
+
+#forecast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin: 5px 0;
+}
+
 .card-img {
-    width:80px;
+    width: 80px;
     height: auto;
+}
+
+@media (max-width: 600px) {
+    #forecast {
+        width: 100%;
+    }
+
+    .card {
+        flex: 1 50%;
+        margin: 25px;
+        padding: 5px;
+    }
+
+    .card-title {
+        font-size: 1em;
+    }
+
+    .card-img {
+        width: 60px;
+        height: auto;
+    }
 }
 
 
