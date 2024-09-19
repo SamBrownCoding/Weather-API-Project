@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
+//#region Find Location
 //* GET COORDINATES IF USER ALLOW IT.
 const findMe = () => {
 
@@ -20,9 +23,11 @@ const findMe = () => {
 
     navigator.geolocation.getCurrentPosition(success, error);
 };
+//#endregion
 
 
 
+//#region Location Coord
 //* Get the Location Coordinates
 function getCoordinates(latitude, longitude) {
     fetch(`https://api.weather.gov/points/${latitude},${longitude}`)
@@ -38,11 +43,13 @@ function getCoordinates(latitude, longitude) {
         })
         .catch(error => console.error('Error fetching coordinates:', error));
 };
+//#endregion
 
 
 
+//#region Display Location
 //* Get Location to Display
-function displayInfo(city, state){
+function displayInfo(city, state) {
     const yourLocation = document.getElementById("infoLocation")
     yourLocation.innerHTML = ''; // Clear location
 
@@ -53,10 +60,11 @@ function displayInfo(city, state){
     yourLocation.append(location);
 
 };
+//#endregion
 
 
 
-
+//#region Forcast Info
 //* Get Forcast Information
 function getForecast(gridId, gridX, gridY) {
     fetch(`https://api.weather.gov/gridpoints/${gridId}/${gridX},${gridY}/forecast`)
@@ -67,9 +75,11 @@ function getForecast(gridId, gridX, gridY) {
         })
         .catch(error => console.error('Error fetching forecast:', error));
 };
+//#endregion
 
 
 
+//#region Display Weather
 //* Display the Weather on the Card of each day. 
 function displayWeather(forecastInfo) {
     const forecastContainer = document.getElementById('forecast');
@@ -115,7 +125,7 @@ function displayWeather(forecastInfo) {
         nightIcon.src = night.icon;
 
         const nightTemp = document.createElement('p');
-        nightTemp.className = 'card-text';
+        nightTemp.className = 'card-text night';
         nightTemp.textContent = `Night Temperature: ${night.temperature}°${night.temperatureUnit}`;
 
         const nightDesc = document.createElement('p');
@@ -133,5 +143,6 @@ function displayWeather(forecastInfo) {
         forecastContainer.appendChild(card);
     });
 };
+//#endregion
 
 
