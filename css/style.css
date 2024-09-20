@@ -4,23 +4,76 @@ body {
     font-style: normal;
 }
 
-.bg {
-    background-image: linear-gradient(315deg,
-            hsl(240deg 100% 20%) 0%,
-            hsl(236deg 100% 21%) 8%,
-            hsl(232deg 100% 22%) 17%,
-            hsl(229deg 100% 23%) 25%,
-            hsl(227deg 100% 24%) 33%,
-            hsl(225deg 100% 25%) 42%,
-            hsl(223deg 100% 26%) 50%,
-            hsl(221deg 100% 27%) 58%,
-            hsl(219deg 99% 28%) 67%,
-            hsl(218deg 97% 29%) 75%,
-            hsl(217deg 94% 31%) 83%,
-            hsl(217deg 91% 32%) 92%,
-            hsl(216deg 87% 34%) 100%);
+body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, #65005e 3%, rgba(60,132,206,1) 38%, #E05FFB 68%, #003392 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
     min-height: 100vh;
     width: 100%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
 }
 
 .title,
@@ -46,7 +99,7 @@ body {
     border-style: none;
     margin: 10px;
     padding: 10px;
-    background-image: linear-gradient(to right top, #0d05d3, #002ddb, #0043e1, #0156e5, #2267e8, #007ef3, #0094fb, #00a8ff, #00c5ff, #00ddf0, #00efbc, #5ffb7a);
+    background-image: linear-gradient(to right bottom, #051937, #002667, #0b2e97, #462dc4, #8312eb);
     background-color: white;
 }
 
@@ -73,6 +126,7 @@ body {
 }
 
 .card-text {
+    font-size: 12px;
     margin: 5px 0;
 }
 
